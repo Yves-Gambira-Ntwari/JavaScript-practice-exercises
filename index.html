@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>JavaScript learning exercises</h1>
+
+    <script>
+      // Variables exercises
+      /* Want to find out how old you'll be? Calculate it!
+
+Store your birth year in a variable.
+Store a future year in a variable.
+Calculate your 2 possible ages for that year based on the stored values.
+For example, if you were born in 1988, then in 2026 you'll be either 37 or 38, depending on what month it is in 2026.
+Output them to the screen like so: "I will be either NN or NN in YYYY", substituting the values.*/
+
+      const myBirthDate = 1988;
+      const futureYear = 2026;
+      console.log(`I will be either ${futureYear - myBirthDate} or ${(futureYear - myBirthDate) + 1} in ${2026}`);
+
+/*Store a radius into a variable.
+Calculate the circumference based on the radius, and output "The circumference is NN".
+Calculate the area based on the radius, and output "The area is NN".*/
+const radius = 5;
+const circumference = Math.PI * (radius *2)
+const area  =(radius ** 2) * Math.PI
+console.log(`The area of circle with radius 5 is: ${area}`)
+console.log(`The circumfrence of circle with radius 5 is: ${circumference}`)
+    </script>
+  </body>
+</html>
