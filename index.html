@@ -20,16 +20,50 @@ Output them to the screen like so: "I will be either NN or NN in YYYY", substitu
 
       const myBirthDate = 1988;
       const futureYear = 2026;
-      console.log(`I will be either ${futureYear - myBirthDate} or ${(futureYear - myBirthDate) + 1} in ${2026}`);
+      console.log(
+        `I will be either ${futureYear - myBirthDate} or ${
+          futureYear - myBirthDate + 1
+        } in ${2026}`
+      );
 
-/*Store a radius into a variable.
+      /*Store a radius into a variable.
 Calculate the circumference based on the radius, and output "The circumference is NN".
 Calculate the area based on the radius, and output "The area is NN".*/
-const radius = 5;
-const circumference = Math.PI * (radius *2)
-const area  =(radius ** 2) * Math.PI
-console.log(`The area of circle with radius 5 is: ${area}`)
-console.log(`The circumfrence of circle with radius 5 is: ${circumference}`)
+      const radius = 5;
+      const circumference = Math.PI * (radius * 2);
+      const area = radius ** 2 * Math.PI;
+      console.log(`The area of circle with radius 5 is: ${area}`);
+      console.log(
+        `The circumfrence of circle with radius 5 is: ${circumference}`
+      );
+
+      // Check if a number is odd or even in JavaScript
+      const num = 10;
+      if (num % 2 === 0) {
+        console.log("even");
+      } else {
+        console.log("odd");
+      }
+      // Check if input variable is a number or not
+      const checkeVariable = 10;
+      if (isNaN(checkeVariable)) {
+        console.log("The input is not a number");
+      } else {
+        console.log("The input is a number");
+      }
+      // Find the largest of three number
+      const number1 = 10;
+      const number2 = 0;
+      const number3 = 6;
+      if (number1 > number2 && number1 > number3) {
+        console.log("Number 1 is the biggest");
+      } else if (number2 > number1 && number2 > number3) {
+        console.log("Number 2 is the biggest");
+      } else if (number3 > number1 && number3 > number2) {
+        console.log("Number 3 is the biggest");
+      } else if (number1 === number2 && number1 > number3){
+        console.log("both number 1 and two are equal");
+      }
     </script>
   </body>
 </html>
