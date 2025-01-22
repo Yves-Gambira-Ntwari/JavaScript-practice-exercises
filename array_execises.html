@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  // 1) Write a JavaScript function to get the first element of an array. 
+  // Passing a parameter 'n' will return the first 'n' elements of the array.
+  const numbers = [1, 2, 3, 4, 5, 6]
+  const leters = ['a', 'b', 'c']
+  const getFirstElement = (n) =>{
+    n = numbers[0]
+    return n;
+  }
+
+  // Finde the highest number in the array
+
+const myArr = [2,5,2,8]
+myArr.sort()
+const myIndex = myArr.length - 1
+console.log(myArr[myIndex])
+
+  console.log(getFirstElement())
+  // 2) Write a function capitalize that takes a string and uses .map to return the same string in all caps.
+  const capitalizeArray = (str) =>{
+    str = leters.map((i) => i.toUpperCase())
+    return str
+  }
+  console.log(capitalizeArray())
+
+</script>
+</body>
+</html>
