@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    // Write a function to reverse a number 
+    const reverseNumber = (num) =>{
+      num = num + ""
+      let intoArray = num.split('').reverse().join("")
+      for(let i = 0; i < intoArray.length; i++){
+      }
+      return intoArray
+    }
+    console.log(reverseNumber(500))
+    // Write a function to sort Example string : 'webmaster' Expected Output : 'abeemrstw'
+    const sortWords = (str) =>{
+      let intoArray = str.split('').reverse().join("")
+      return intoArray
+    }
+
+    // capitalize the first letter
+    console.log(sortWords('Gambira'))
+    function toCapital(string){
+      let reverseW = string.split('')
+      const newArray = []
+      for(let i = 0; i < reverseW.length; i++){
+        if(reverseW[i] === ' '){
+          let capital = i + 1;
+          newArray.push(' ' +reverseW[capital].toUpperCase().slice());
+        }else{
+          newArray.push(reverseW[i]);
+        }
+      }
+      return newArray.join("")
+    }
+
+    console.log(toCapital('string is the datatype of javascript'))
+  </script>
+</body>
+</html>
