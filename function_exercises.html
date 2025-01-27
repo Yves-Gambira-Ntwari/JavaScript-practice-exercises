@@ -23,28 +23,37 @@
       return intoArray
     }
 
-    // capitalize the first letter
     console.log(sortWords('Gambira'))
-    function toCapital(string){
-      let reverseW = string.split('')
-      const newArray = []
-      for(let i = 0; i < reverseW.length; i++){
-        if(reverseW[i] === ' '){
-          let capital = i + 1;
-          newArray.push(' ' +reverseW[capital].toUpperCase().slice());
-        }else{
-          newArray.push(reverseW[i]);
-        }
-      }
-      return newArray.join("")
-    }
-    console.log(toCapital('string is the datatype of javascript'))
+    // capitalize the first letter
+    function uppercase(str)
+{
+  var array1 = str.split(' ');
+  var newarray1 = [];
+    
+  for(var x = 0; x < array1.length; x++){
+      newarray1.push(array1[x].charAt(0).toUpperCase()+array1[x].slice(1));
+  }
+  return newarray1.join(' ');
+}
+console.log(uppercase("string is the datatype of javascript"));
+
 // count vowels in a string
 const countVowels = (myString) =>{
-        newMyString = myString.split('')
-      return newMyString
+  myvowel = myString.match(/[iuoaeIUOAE]/g)
+  return myvowel ? myvowel.length : 0;
 }
-console.log(countVowels('myString'))
+console.log(countVowels('string is the datatype of javascript'))
+
+// Generate Random String ID
+
+const guess = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+function randomObject(){
+  guessArr = guess.split('');
+  const randomValue = Math.floor(Math.random() * (guessArr.length) - 1)
+  console.log(guessArr[randomValue])
+
+}
+randomObject()
   </script>
 </body>
 </html>
