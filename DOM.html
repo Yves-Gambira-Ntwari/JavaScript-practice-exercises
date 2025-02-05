@@ -6,11 +6,25 @@
   <title>Document</title>
 </head>
 <body>
+
   <p id="first">Hi, There!</p>
    <p>JavaScript is fun.</p>
+   <form action="">
+    <label for="gender">Male</label>
+    <input type="radio" value="male" name="gender" id="">
+    <input type="radio" value="female" name="gender" id="">
+   </form>
+
    <script>
+// selector using id 
     const elem = document.getElementById('first')
     console.log(elem)
+    // select using name
+    const gender = document.getElementsByName('gender')
+    if(gender.checked){
+      output.innerText = `You selected: ${gender.value}`;
+    }
+
    </script>
 </body>
 </html>
