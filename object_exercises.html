@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // Create an object Literals
+    const myObject = {
+      name: 'Gambira',
+      age: '25',
+      department: 'IT'
+    }
+    // Create an object using construction Function
+    const myObjectFunction = (name, age, department) =>{
+      this.name = name,
+      this.age = age,
+      this.department = department
+      return name, age, department
+    }
+    // Craet an object using .create() method
+    const myObjectMethod = Object.create(null)
+    myObjectMethod.name = 'Gambira'
+    myObjectMethod.age = '24'
+    myObjectMethod.department = 'IT'
+    // Accessing object
+    console.log(myObjectMethod.age)
+    console.log(myObjectFunction('Gambira', 25, 'IT'))
+    console.log(myObjectFunction.age)
+  </script>
+</body>
+</html>
