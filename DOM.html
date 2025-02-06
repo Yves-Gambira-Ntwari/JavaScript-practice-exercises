@@ -34,6 +34,7 @@
   <li>News</li>
   <li>About Us</li>
 </ul>
+
    <script>
 // selector using id 
     const elem = document.getElementById('first')
@@ -57,31 +58,48 @@
   const query = document.querySelector('*')
   // console.log(btn.parentNode)
   const parent = document.querySelector('.parent')
+
+let mydiv = document.createElement('div')
+mydiv.innerHTML = '<p>hello</p>'
+console.log(mydiv)
+parent.appendChild(mydiv)
+console.log(parent)
+const menu = document.querySelector('#menu')
+
+const createMenuList = (name)=>{
+  let li = document.createElement('li')
+  li.textContent = name;
+  return li
+}
+menu.appendChild(createMenuList('Yes'))
+console.log(menu)
+
+
   // console.log(parent.firstElementChild)
   // console.log(parent.previousElementSibling)
-  const menu = document.querySelector('#menu')
-  let getSiblings = function (e) {
-            // for collecting siblings
-            let siblings = []; 
-            // if no parent, return no sibling
-            if(!e.parentNode) {
-                return siblings;
-            }
-            // first child of the parent node
-            let sibling  = e.parentNode.firstChild;
-            // collecting siblings
-            while (sibling) {
-                if (sibling.nodeType === 1 && sibling !== e) {
-                    siblings.push(sibling);
-                }
-                sibling = sibling.nextSibling;
-            }
-            return siblings;
-        };
-        let siblings = getSiblings(document.querySelector('.current'));
+
+  // let getSiblings = function (e) {
+  //           // for collecting siblings
+  //           let siblings = []; 
+  //           // if no parent, return no sibling
+  //           if(!e.parentNode) {
+  //               return siblings;
+  //           }
+  //           // first child of the parent node
+  //           let sibling  = e.parentNode.firstChild;
+  //           // collecting siblings
+  //           while (sibling) {
+  //               if (sibling.nodeType === 1 && sibling !== e) {
+  //                   siblings.push(sibling);
+  //               }
+  //               sibling = sibling.nextSibling;
+  //           }
+  //           return siblings;
+  //       };
+  //       let siblings = getSiblings(document.querySelector('.current'));
         
-        siblingText = siblings.map(e => e.innerText);
-        console.log(siblingText);
+  //       siblingText = siblings.map(e => e.innerText);
+  //       console.log(siblingText);
    </script>
 </body>
 </html>
