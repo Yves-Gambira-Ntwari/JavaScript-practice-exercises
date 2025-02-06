@@ -21,7 +21,7 @@
 <h2>Hello world</h2>
 <h2>Hello world</h2>
 <div class="parent">
-  <p class="child"></p>
+  <p class="child">child</p>
   <p class="child"></p>
   <p class="child"></p>
 </div>
@@ -72,9 +72,9 @@ const createMenuList = (name)=>{
   return li
 }
 menu.appendChild(createMenuList('Yes'))
-console.log(menu)
+// console.log(menu)
 
-
+console.log(parent.firstElementChild.textContent)
   // console.log(parent.firstElementChild)
   // console.log(parent.previousElementSibling)
 
