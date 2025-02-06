@@ -20,15 +20,28 @@
 <p id="output"></p>
 <h2>Hello world</h2>
 <h2>Hello world</h2>
-
+<div class="parent">
+  <p class="child"></p>
+  <p class="child"></p>
+  <p class="child"></p>
+</div>
+<ul id="menu">
+  <li>Home</li>
+  <li>Products</li>
+  <li class="current">Customer Support</li>
+  <li>Careers</li>
+  <li>Investors</li>
+  <li>News</li>
+  <li>About Us</li>
+</ul>
    <script>
 // selector using id 
     const elem = document.getElementById('first')
-    console.log(elem)
+    // console.log(elem)
     // select using name
     let gender = document.getElementsByName('rate')
     let btn = document.getElementById('btnRate');
-  console.log(gender)
+  // console.log(gender)
   btn.addEventListener('click', () => {
             gender.forEach((rate) => {
                 if (rate.checked) {
@@ -39,10 +52,36 @@
         });
         // Select using elementName
   const elementName = document.getElementsByTagName('h2')
-  console.log(elementName.length)
+  // console.log(elementName.length)
   // using querySelector
   const query = document.querySelector('*')
-  console.log(query)
+  // console.log(btn.parentNode)
+  const parent = document.querySelector('.parent')
+  // console.log(parent.firstElementChild)
+  // console.log(parent.previousElementSibling)
+  const menu = document.querySelector('#menu')
+  let getSiblings = function (e) {
+            // for collecting siblings
+            let siblings = []; 
+            // if no parent, return no sibling
+            if(!e.parentNode) {
+                return siblings;
+            }
+            // first child of the parent node
+            let sibling  = e.parentNode.firstChild;
+            // collecting siblings
+            while (sibling) {
+                if (sibling.nodeType === 1 && sibling !== e) {
+                    siblings.push(sibling);
+                }
+                sibling = sibling.nextSibling;
+            }
+            return siblings;
+        };
+        let siblings = getSiblings(document.querySelector('.current'));
+        
+        siblingText = siblings.map(e => e.innerText);
+        console.log(siblingText);
    </script>
 </body>
 </html>
