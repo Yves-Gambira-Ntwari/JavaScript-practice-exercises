@@ -35,6 +35,10 @@
   <li>About Us</li>
 </ul>
 
+<div class="appendLoop">
+
+</div>
+
    <script>
 // selector using id 
     const elem = document.getElementById('first')
@@ -72,9 +76,27 @@ const createMenuList = (name)=>{
   return li
 }
 menu.appendChild(createMenuList('Yes'))
+console.log(menu.innerHTML)
+
+// append loop
+
+const parentLoop = document.querySelector('.appendLoop');
+let i = 1;
+while(i < 10){
+  let p = document.createElement('p');
+  if(i%2 === 0){
+    console.log(p.innerText = `The paragraph ${i}, and it is even paragraph`)
+    parentLoop.appendChild(p)
+  } else{
+    console.log(p.innerText = `The paragraph ${i}, and it is odd paragraph`)
+    parentLoop.appendChild(p)
+  }
+  i++
+}
+
 // console.log(menu)
 
-console.log(parent.firstElementChild.textContent)
+// console.log(parent.firstElementChild.textContent)
   // console.log(parent.firstElementChild)
   // console.log(parent.previousElementSibling)
 
