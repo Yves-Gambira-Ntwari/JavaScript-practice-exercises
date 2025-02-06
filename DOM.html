@@ -18,6 +18,8 @@
 <button id="btnRate">Submit</button>
 </p>
 <p id="output"></p>
+<h2>Hello world</h2>
+<h2>Hello world</h2>
 
    <script>
 // selector using id 
@@ -35,8 +37,12 @@
             });
 
         });
-
-
+        // Select using elementName
+  const elementName = document.getElementsByTagName('h2')
+  console.log(elementName.length)
+  // using querySelector
+  const query = document.querySelector('*')
+  console.log(query)
    </script>
 </body>
 </html>
