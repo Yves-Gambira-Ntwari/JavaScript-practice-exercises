@@ -6,24 +6,36 @@
   <title>Document</title>
 </head>
 <body>
-
-  <p id="first">Hi, There!</p>
-   <p>JavaScript is fun.</p>
-   <form action="">
-    <label for="gender">Male</label>
-    <input type="radio" value="male" name="gender" id="">
-    <input type="radio" value="female" name="gender" id="">
-   </form>
+  <p id="first"></p>
+<label for="good">
+    <input type="radio" name="rate" value="Good"> Good
+</label>
+<label for="very-good">
+    <input type="radio" name="rate" value="Very Good" id="very-good"> Very Good
+</label>
+</p>
+<p>
+<button id="btnRate">Submit</button>
+</p>
+<p id="output"></p>
 
    <script>
 // selector using id 
     const elem = document.getElementById('first')
     console.log(elem)
     // select using name
-    const gender = document.getElementsByName('gender')
-    if(gender.checked){
-      output.innerText = `You selected: ${gender.value}`;
-    }
+    let gender = document.getElementsByName('rate')
+    let btn = document.getElementById('btnRate');
+  console.log(gender)
+  btn.addEventListener('click', () => {
+            gender.forEach((rate) => {
+                if (rate.checked) {
+                    output.innerText = `You selected: ${rate.value}`;
+                }
+            });
+
+        });
+
 
    </script>
 </body>
