@@ -36,10 +36,41 @@
 </ul>
 
 <div class="appendLoop">
-
 </div>
+<ul id="languages">
+  <button id="clickMe">click me!</button>
+  <img src="Screenshots/Screenshot 2025-01-24 165333.png" height="100" alt="" id="image1">
+  <img src="Screenshots/Screenshot 2025-01-24 165333.png" height="200" alt="" id="image2">
+  <img src="Screenshots/Screenshot 2025-01-24 165333.png" height="300" alt="" id="image3">
+</ul>
 
    <script>
+    const img1 = document.querySelector('#image1')
+    const img2 = document.querySelector('#image2')
+    const img3 = document.querySelector('#image3')
+
+    const imgArray = [img1, img2, img3];
+    let j = -1;
+    
+    clickMe.addEventListener('click', ()=>{
+      j++;
+      if(j < imgArray.length){  
+        for(let i = 0; i < imgArray.length; i++){
+          if(i = j){
+            imgArray[j].style.display = 'block'
+          } else{
+
+            imgArray[i].style.display = 'none'
+          }
+    }
+        console.log(j)
+        } else{
+          j=-1;
+        }
+      
+        
+      })
+
 // selector using id 
     const elem = document.getElementById('first')
     // console.log(elem)
@@ -82,17 +113,31 @@ console.log(menu.innerHTML)
 
 const parentLoop = document.querySelector('.appendLoop');
 let i = 1;
-while(i < 10){
+while(i < 4){
   let p = document.createElement('p');
   if(i%2 === 0){
-    console.log(p.innerText = `The paragraph ${i}, and it is even paragraph`)
+      p.innerText = `The paragraph ${i}, and it is even paragraph`
     parentLoop.appendChild(p)
   } else{
-    console.log(p.innerText = `The paragraph ${i}, and it is odd paragraph`)
+    p.innerText = `The paragraph ${i}, and it is odd paragraph`
     parentLoop.appendChild(p)
   }
   i++
 }
+
+
+// use documentFragment
+let languages = ['JS', 'Python', 'TypeScript']
+let langEl = document.querySelector('#languages');
+// console.log(langEl)
+let fragment = new DocumentFragment()
+languages.forEach(language => {
+  let li = document.createElement('li');
+  li.innerHTML = language
+  fragment.appendChild(li)
+  // console.log(li)
+});
+langEl.appendChild(fragment)
 
 // console.log(menu)
 

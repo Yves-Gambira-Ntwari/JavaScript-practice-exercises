@@ -1,0 +1,156 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+body{
+  font-family: 'Objective', sans-serif;
+}
+
+header,
+main,
+footer{
+  padding: 45px 100px 0 0;
+}
+
+.main-header, .header-nav, .main-content, .how-container{
+  margin-left: 245px;
+
+}
+
+li{
+  list-style-type: none;
+}
+
+a{
+  text-decoration: none;
+}
+
+header{
+  background: linear-gradient(to top, white, #c8e2f4);
+  
+}
+
+.logo{
+  color: #4A99D3;
+}
+
+.header-nav{
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 0px 0 0;
+  margin-bottom: 10%;
+}
+
+header ul{
+  display: flex;
+}
+
+header ul li{
+  padding: 0 10px;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.main-header-title h2{
+  font-size: 50px;
+}
+
+.main-header-paragraph span{
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.main-header-button{
+  display: flex;
+  grid-template-columns: 1fr 1fr;
+}
+
+.main-header-button .button-div{
+  padding: 0 10px;
+}
+
+.main-header{
+  display: flex;
+}
+
+.main-header-img{
+  position: relative;
+  width: 100rem;
+}
+
+.main-header-img .small{
+  width: 30rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.main-header-img .large{
+  position: absolute;
+  width: 35rem;
+  right: -30%;
+  bottom: 0;
+}
+
+.main-header-img img{
+  width: 100%;
+  /* position: absolute; */
+}
+
+.what-we-do p{
+  font-weight: 700;
+  font-size: 26px;
+}
+
+.main-content{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.wrap-box{
+  padding: 2rem;
+  border-radius: 10px;
+  width: 50%;
+  box-shadow: 5px 20px 50px 0px #4A99D333;
+}
+
+.wrap-box,.text p{
+  color: rgb(91, 91, 91);
+}
+
+.wrap-box div{
+  padding: 20px 0px;
+}
+
+.right-main .wrap-box{
+  margin-top: 2rem;
+}
+
+.left-main{
+  display: grid;
+  grid-template-rows: 20rem 30rem;
+  padding-bottom: 2rem;
+}
+
+.learn-more{
+  color: #4A99D3;
+}
+
+.how-it-works{
+  background-color: #4A99D31A;
+}
+
+.container-box i{
+  color: #D3844A;
+  font-size: 33.66px;
+}
+
+.how-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.container-box{
+
+}
