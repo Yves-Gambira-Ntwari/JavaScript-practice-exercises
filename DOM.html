@@ -39,10 +39,25 @@
 </div>
 <ul id="languages">
   <button id="clickMe">click me!</button>
+
   <img src="Screenshots/Screenshot 2025-01-24 165333.png" height="100" alt="" id="image1">
   <img src="Screenshots/Screenshot 2025-01-24 165333.png" height="200" alt="" id="image2">
   <img src="Screenshots/Screenshot 2025-01-24 165333.png" height="300" alt="" id="image3">
 </ul>
+
+<div class="after">
+  <h1>after</h1>
+  <ul class="after-method">
+    <li>Vue.Js</li>
+    <li>Angula.Js</li>
+  </ul>
+</div>
+
+<div class="append">
+  <ul class="append-method">
+    <li>JavaScript</li>
+  </ul>
+</div>
 
    <script>
     const img1 = document.querySelector('#image1')
@@ -52,16 +67,18 @@
     const imgArray = [img1, img2, img3];
     let j = -1;
     
-    clickMe.addEventListener('click', ()=>{
-      j++;
-      if(j < imgArray.length){  
-        for(let i = 0; i < imgArray.length; i++){
+    j++;
+    if(j < imgArray.length){  
+      for(let i = 0; i < imgArray.length; i++){
+        imgArray[i].style.display = 'none'
+          clickMe.addEventListener('click', ()=>{
           if(i = j){
             imgArray[j].style.display = 'block'
           } else{
 
             imgArray[i].style.display = 'none'
           }
+        })
     }
         console.log(j)
         } else{
@@ -69,7 +86,6 @@
         }
       
         
-      })
 
 // selector using id 
     const elem = document.getElementById('first')
@@ -107,7 +123,7 @@ const createMenuList = (name)=>{
   return li
 }
 menu.appendChild(createMenuList('Yes'))
-console.log(menu.innerHTML)
+// console.log(menu.innerHTML)
 
 // append loop
 
@@ -167,6 +183,35 @@ langEl.appendChild(fragment)
         
   //       siblingText = siblings.map(e => e.innerText);
   //       console.log(siblingText);
+  
+  // after method
+  const h1 = document.querySelector('h1')
+  const p = document.createElement('p')
+  p.innerText = 'This is the paragraph that use after method'
+  h1.after(p)
+  
+  // use afterr for greater than one node
+const list = document.querySelector(".after-method");
+const libs = ['ReactJs', 'Meteor', 'Polyme'];
+const items = libs.map((lib) =>{
+  const item = document.createElement('li');
+  item.innerText = lib;
+  return item;
+})
+list.lastChild.after(...items)
+
+// use append method
+const appendList = document.querySelector('.append-method');
+let langs = ['TypeScript', 'HTML', 'CSS']
+let nodes = langs.map((lang) =>{
+  const li = document.createElement('li')
+  li.innerText = lang;
+  return li
+})
+appendList.append(...nodes)
+
+
+
    </script>
 </body>
 </html>
