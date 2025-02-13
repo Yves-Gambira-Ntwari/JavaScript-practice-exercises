@@ -55,21 +55,21 @@ let btn = document.querySelector('#btn');
 // disable context menu when right-mouse clicked
 
 
-btn.addEventListener('mouseup', (e) => {
-  let msg = document.querySelector('#message');
-  switch (e.button) {
-    case 0:
-      msg.textContent = 'Left click'
-      break;
-    case 1:
-      msg.textContent = 'Middle click'
-      break;
-    case 2:
-      msg.textContent = 'Right click'
-      break;
-    default:
-      msg.textContent = 'Unknown click'
-  }
+// btn.addEventListener('mouseup', (e) => {
+//   let msg = document.querySelector('#message');
+//   switch (e.button) {
+//     case 0:
+//       msg.textContent = 'Left click'
+//       break;
+//     case 1:
+//       msg.textContent = 'Middle click'
+//       break;
+//     case 2:
+//       msg.textContent = 'Right click'
+//       break;
+//     default:
+//       msg.textContent = 'Unknown click'
+//   }
 
 
-});
+// });
