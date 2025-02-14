@@ -5,24 +5,59 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>To-do-list</title>
   <style>
+    ul div{
+      display: flex;
+      justify-content: space-between;
+      background-color: aliceblue;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    .cancel{
+      text-decoration: line-through;
+    }
+    
+    ul #mylist:hover{
+      background-color: rgba(48, 46, 46, 0.607);
+      color: white;
+    }
+    
+    #mylist:hover div{
+      background-color: rgba(48, 46, 46, 0.607);
+
+    }
+    
+    button, input{
+      padding: 10px 2rem;
+    }
+    
+    button{
+      border: none;
+      cursor: pointer;
+    }
+
+    .delete{
+      color: white;
+      background-color: red;
+    }
     ul{
       list-style-type: none;
       padding: 10px;
+      font-size: 25px;
     }
 
     li{
       padding: 10px;
-      background-color: aliceblue;
     }
-    ul li:nth-child(even){
-      background-color: rgb(51, 50, 50);
+    ul #mylist:nth-child(even){
+      background-color: rgba(122, 122, 122, 0.607);
       color: white;
     }
   </style>
 </head>
 <body>
   <h1>To-do-list</h1>
-  <div id="lu">
+  <div id="main">
     <input type="text" name="input" id="input"><button id="add">Add</button>
     <ul id="to-do-list">
     </ul>
@@ -32,20 +67,56 @@
     const ul = document.getElementById('to-do-list');
     const btn = document.getElementById('add');
     let id=0;
-    btn.addEventListener('click', ()=>{
+    input.addEventListener('keydown', (e)=>{
+      if(e.key == 'Enter'){
+        myToDoList()
+      }
+    })
+    btn.addEventListener('click', myToDoList)
+    function myToDoList(){
      const inputValue = input.value;
      if(inputValue !== ''){
 
        function insert(){
          id +=1;
+         const liDiv = document.createElement('div')
+         liDiv.className = id
+         liDiv.id = 'mylist'
          const li = document.createElement('li');
          li.textContent = `${id}. ${inputValue}`;
-         return ul.append(li)
-         console.log(ul)
+         const deleteBtn = document.createElement('button');
+         const checkBox = document.createElement('input');
+         const actionBtn = document.createElement('div')
+         checkBox.type = 'checkbox';
+         
+         deleteBtn.className = 'delete';
+         deleteBtn.value = id
+         deleteBtn.textContent = 'delete';
+         liDiv.append(li)
+         actionBtn.append(checkBox)
+         actionBtn.append(deleteBtn)
+         liDiv.append(actionBtn)
+         checkBox.addEventListener('input', ()=>{
+           if(checkBox.checked == true){
+             const parent = deleteBtn.parentElement.parentElement
+             const listToCancel = parent.firstChild
+             li.classList.add('cancel')
+            } else{
+            li.classList.remove('cancel')
+          }
+         })
+         deleteBtn.addEventListener('click',()=>{
+          const parent = deleteBtn.parentElement.parentElement
+          const grandParent = parent.parentElement
+          grandParent.removeChild(parent)
+
+         })
+         return ul.append(liDiv)
         }
         insert()
       }
-      })
+    }
+      
 
   </script>
 </body>

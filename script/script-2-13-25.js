@@ -1,4 +1,4 @@
-// // Using key-events
+// // Using   -events
 // const myInput = document.querySelector('.keyboard-event input')
 // const myp = document.querySelector('.keyboard-event p')
 // const mybtn = document.querySelector('.keyboard-event button')
