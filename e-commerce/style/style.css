@@ -7,14 +7,17 @@ body {
   font-family: 'Objective', sans-serif;
 }
 
+span{
+ color: rgb(91, 91, 91);;
+}
+
 header,
 main,
 footer {
   padding: 45px 0px 0 0;
   margin-top: 10px;
   }
-  /* 
-  */
+
 .main-header,
 .header-nav,
 .main-content
@@ -61,7 +64,6 @@ header ul li {
 }
 
 .main-header-paragraph span {
-  /* font-size: 20px; */
   font-weight: 400;
 }
 
@@ -159,18 +161,91 @@ header ul li {
   padding: 2rem 0px;
 }
 
-.our-client .clients{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding: 20px 0px;
+.our-client{
+  position: relative;
 }
 
+.our-client .clients{
+  display: flex;
+  position: relative;
+  padding: 20px 0px;
+  align-items: center;
+  gap: 5rem;
+}
 
+.client-header{
+  text-align: center;
+}
 
 .our-client .client-img{
-  background-color: #4A99D31A;
+  position: relative;
 }
 
+
 .client-img img{
+  width: 100%;
+}
+
+.client-discription div{
+  padding: 10rem 0;
+  text-align: left;
+}
+.arrows{
+  position: absolute;
+  right: 10px;
+  bottom: 0;
+}
+
+.enjoy-app{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  position: relative;
+  background-color: #D3844A;
+  align-items: center;
+}
+
+.enjoy-app img{
   width: 300px;
+}
+
+.img-small{
+  display: flex;
+}
+
+.img-small div{
+  /* position: absolute; */
+  top: 0;
+  z-index: 98;
+}
+
+.img-small .img2{
+  left: 40%;
+}
+
+.img-small .img3{
+  right: 40%;
+}
+
+.enjoy-img{
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
+}
+
+.img-small img{
+  width: 30rem;
+}
+
+.img-larg img{
+  width: 50rem;
+}
+
+.img-larg{
+  position:absolute;
+  align-items: center;
+  top: 0;
+  z-index: 99;
+
 }
