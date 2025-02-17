@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container{
+      background-color: black;
+      color: white;
+      position: absolute;
+      width: 50%;
+      transform: translate(50%, 40%);
+      align-items: center;
+    }
+
+    .button{
+      display: flex;
+      gap: 13rem;
+      padding: 10px;
+    }
+
+    .displayer {
+      font-size: 20rem;
+      text-align: center;
+    }
+
+    button{
+      background-color: rgb(34, 33, 33);
+      color: white;
+      width: 5rem;
+      padding: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="displayer"><span id="counter">0</span>s</div>
+    <div class="button">
+      <div id="count5">
+        <button>+5s</button>
+      </div>
+      <div id="count10"><button>+10s</button></div>
+      <div id="count15"><button>+15s</button></div>
+    </div>
+  </div>
+  <script>
+    let counter = 0;
+    count5.addEventListener('click', ()=>{
+      counter += 5;
+      console.log(counter)
+      document.getElementById('counter').textContent = counter;
+    })
+    count10.addEventListener('click', ()=>{
+      counter += 10;
+      document.getElementById('counter').textContent = counter;
+    })
+    count15.addEventListener('click', ()=>{
+      counter += 15;
+      document.getElementById('counter').textContent = counter;
+    })
+  </script>
+</body>
+</html>

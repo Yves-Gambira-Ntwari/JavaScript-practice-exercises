@@ -1,16 +1,20 @@
 // setTimeout 
-const start = document.querySelector('#start');
-const stop = document.querySelector('#stop');
-start.addEventListener('click', () => {
-  function myTimer() {
-    console.log('hello')
-  }
+// const start = document.querySelector('#start');
+// const stop = document.querySelector('#stop');
+// start.addEventListener('click', startTimer)
+// let intaval;
+// function startTimer(){
+//   intaval = setInterval(alert, 1000)
+//   const output = 'yes';
+// }
 
-  setTimeout(myTimer, 3000);
-  stop.addEventListener('click', () => {
-    clearInterval(myTimer)
-    console.log('stop')
-  })
-})
+// function alert(){
+//   console.log('hello')
+// }
 
+// stop.addEventListener('click', stopTimer)
 
+// function stopTimer(){
+//   clearInterval(intaval)
+//   intaval = null;
+// }
