@@ -18,3 +18,23 @@
 //   clearInterval(intaval)
 //   intaval = null;
 // }
+
+// animatio
+const load = document.getElementById('load')
+click.addEventListener('click', ()=>{
+  let id;
+  let pos = 0;
+  clearInterval(id)
+  id = setInterval(frame, 10)
+  function frame(){
+    if(pos == 30){
+      clearInterval(id)
+    } else{
+      pos++
+
+    }
+    load.style.top = pos + '%'
+    load.style.left = pos + '%'
+  }
+})
+
