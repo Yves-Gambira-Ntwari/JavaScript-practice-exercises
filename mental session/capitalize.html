@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function capitVowel(word){
+      const vowels = ['a', 'i', 'u', 'o', 'e']
+      const capitalVowe = []
+      const wordArr = word.split('')
+    for(let i = 0; i < wordArr.length; i++){
+      if(vowels.includes(wordArr[i])){
+        wordArr[i] = wordArr[i].toUpperCase()
+      }   
+      }
+      return wordArr.join('')
+    }
+  
+  
+
+    console.log(capitVowel('Gambira'))
+  </script>
+</body>
+</html>
