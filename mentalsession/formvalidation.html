@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form action="" id="form">
+    <div class="input">
+      <label for="">Number1</label>
+      <input type="number" name="" id="">
+    </div>
+    <div class="input">
+      <label for="">Number2</label>
+      <input type="number" name="" id="">
+    </div>
+    <div class="submit">
+      <input type="submit" value="Check">
+    </div>
+  </form>
+  <p id="message"></p>
+  <div class="table">
+    <button id="add">Add Row</button>
+    <table border="1">
+      <tr><td>hello</td></tr>
+    </table>
+  </div>
+
+  <script>
+    const form = document.getElementById('form');
+    form.addEventListener('input',()=>{
+      if(form[0].value !== form[1].value){
+        message.textContent = 'not match'
+      } else{
+        message.textContent = 'match'
+      }
+    })
+    const table = document.querySelector('table');
+    let i = 0;
+    add.addEventListener('click', ()=>{
+      i++;
+      const tr = document.createElement('tr');
+      const td = document.createElement('td');
+      td.textContent = `td ${i}`
+      tr.append(td)
+      table.append(tr)
+    })
+  </script>
+</body>
+</html>
