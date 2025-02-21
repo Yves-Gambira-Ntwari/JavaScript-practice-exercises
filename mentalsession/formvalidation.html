@@ -4,6 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    .error{
+      color: red;
+    }
+    .success{
+      color: green;
+    }
+  </style>
 </head>
 <body>
   <form action="" id="form">
@@ -32,8 +40,10 @@
     form.addEventListener('input',()=>{
       if(form[0].value !== form[1].value){
         message.textContent = 'not match'
+        message.className = 'error'
       } else{
         message.textContent = 'match'
+        message.className = 'success'
       }
     })
     const table = document.querySelector('table');
@@ -42,10 +52,17 @@
       i++;
       const tr = document.createElement('tr');
       const td = document.createElement('td');
+      const td2 = document.createElement('td');
+      const td3 = document.createElement('td');
       td.textContent = `td ${i}`
-      tr.append(td)
+      td2.textContent = 'second'
+      td3.textContent = 'third'
+      tr.append(td, td2, td3)
       table.append(tr)
     })
+
+    let arr = [1,2,3,7,3,4]
+    console.log(arr.filter(num => arr.indexOf(num) === arr.lastIndexOf(num)))
   </script>
 </body>
 </html>
