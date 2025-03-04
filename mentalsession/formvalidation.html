@@ -46,23 +46,27 @@
         message.className = 'success'
       }
     })
-    const table = document.querySelector('table');
-    let i = 0;
-    add.addEventListener('click', ()=>{
-      i++;
-      const tr = document.createElement('tr');
-      const td = document.createElement('td');
-      const td2 = document.createElement('td');
-      const td3 = document.createElement('td');
-      td.textContent = `td ${i}`
-      td2.textContent = 'second'
-      td3.textContent = 'third'
-      tr.append(td, td2, td3)
-      table.append(tr)
-    })
+form[2].addEventListener('click', (e)=>{
+  e.preventDefault();
+  console.log('yes')
+})
+    // const table = document.querySelector('table');
+    // let i = 0;
+    // add.addEventListener('click', ()=>{
+    //   i++;
+    //   const tr = document.createElement('tr');
+    //   const td = document.createElement('td');
+    //   const td2 = document.createElement('td');
+    //   const td3 = document.createElement('td');
+    //   td.textContent = `td ${i}`
+    //   td2.textContent = 'second'
+    //   td3.textContent = 'third'
+    //   tr.append(td, td2, td3)
+    //   table.append(tr)
+    // })
 
-    let arr = [1,2,3,7,3,4]
-    console.log(arr.filter(num => arr.indexOf(num) === arr.lastIndexOf(num)))
+    // let arr = [1,2,3,7,3,4]
+    // console.log(arr.filter(num => arr.indexOf(num) === arr.lastIndexOf(num)))
   </script>
 </body>
 </html>
