@@ -1,1 +1,1 @@
-This is the text file
+Hello This is the Mental model script to display hello

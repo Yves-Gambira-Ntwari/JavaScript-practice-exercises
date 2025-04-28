@@ -5,11 +5,14 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon --env-file=.env server2.js"
+    "start": "nodemon --env-file=.env mentalSever.js"
   },
   "author": "Gambira",
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^3.1.9"
+  },
+  "dependencies": {
+    "pg": "^8.15.5"
   }
 }
