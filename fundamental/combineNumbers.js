@@ -5,4 +5,4 @@ const combineNumbers  = (array)=>{
   console.log(final)
 }
 
-console.log(combineNumbers([1,2,3,4,5,6,7,-3]))
+console.log(combineNumbers([1, 3, 5, 4, 9, 6, 45, 11, 8, 22]))
