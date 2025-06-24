@@ -20,21 +20,22 @@
 // }
 
 // animatio
-const load = document.getElementById('load')
-click.addEventListener('click', ()=>{
-  let id;
-  let pos = 0;
-  clearInterval(id)
-  id = setInterval(frame, 10)
-  function frame(){
-    if(pos == 30){
-      clearInterval(id)
-    } else{
-      pos++
+// let timeLeft = 10; // Set countdown time
 
-    }
-    load.style.top = pos + '%'
-    load.style.left = pos + '%'
+let secondLeft = 60;
+let hour  = 1
+let minuts = 1;
+
+let countdown = setInterval(() => {
+  secondLeft--
+  if(secondLeft == 0){
+    minuts--
+    secondLeft = 60;
   }
-})
+  if(minuts == 0){
+    hour--
+    clearInterval(countdown)
+  }
+  console.log(`${hour}:${minuts}:${secondLeft}`)
 
+}, 1000); 

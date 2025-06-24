@@ -1,11 +1,63 @@
-export default function TableList({ handleOpen }) {
-  const clients = [
-    { id: 1, name: "Gambira", email: "gambira@gmail.com", job: "Web Developer", rate: "100", isActive: false },
-    { id: 2, name: "Ntwari", email: "ntwari@gmail.com", job: "Web Developer", rate: "100", isActive: false },
-    { id: 3, name: "Yves", email: "yves@gmail.com", job: "Web Developer", rate: "100", isActive: true }
-  ]
+import { useEffect, useState } from "react"
+import { fetchClientApi, createClientApi, updateRouterApi, deleteRouterApi } from "./API"
+import ModelForm from "./modelForm"
+export default function TableList() {
+  const [clients, setClient] = useState([])
+  const [showForm, setShowForm] = useState(false)
+  const [formData, setFormData] = useState({
+    id: null, name: "", email: "", job: "", rate: "", isactive: ""
+  })
+
+  const getClients = async () => {
+    const { data } = await fetchClientApi()
+    console.log(data)
+    setClient(data)
+  }
+
+
+  useEffect(() => {
+    getClients()
+  }, [])
+
+  function handleEdit(client) {
+    setFormData(client)
+    setShowForm(true)
+  }
+  async function handleSubmit(e) {
+    e.preventDefault()
+    if (formData.id) {
+      // update
+      console.log(formData)
+      console.log('update')
+      const data = await updateRouterApi(formData)
+      console.log(data)
+    } else {
+      // create
+      const data = await createClientApi(formData)
+      console.log(data, "test")
+
+    }
+
+
+  }
+
+  function handleInput(e) {
+    const { name, value } = e.target
+    setFormData({ ...formData, [name]: value })
+  }
+
+async  function handleDelete(id){
+    console.log(id)
+    deleteRouterApi(id)
+  }
+
+
   return (
     <>
+      {showForm && < ModelForm formData={formData} handleInput={handleInput} handleSubmit={handleSubmit} />}
+      <div className="button">
+        <button onClick={() => setShowForm((prev) => !prev)}>Add Client</button>
+      </div>
       <table border={1}>
         <thead>
           <tr>
@@ -18,16 +70,16 @@ export default function TableList({ handleOpen }) {
           </tr>
         </thead>
         <tbody>
-          {clients.map((client) =>
-            <tr>
+          {clients.map((client, index) =>
+            <tr key={index}>
               <td>{client.id}</td>
               <td>{client.name}</td>
               <td>{client.email}</td>
               <td>{client.job}</td>
               <td>{client.rate}</td>
-              <td><button>{client.isActive == true ? 'Active' : 'Inactive'}</button></td>
-              <td><button onClick={() => handleOpen('edit')}>Update</button></td>
-              <td><button>Delete</button></td>
+              <td>{client.isactive ? "Active" : "Inactive"}</td>
+              <td><button onClick={() => handleEdit(client)}>Update</button></td>
+              <td><button onClick={() =>handleDelete(client.id) }>Delete</button></td>
             </tr>
           )}
         </tbody>

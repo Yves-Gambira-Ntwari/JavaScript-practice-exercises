@@ -1,13 +1,13 @@
-import express, { json } from 'express'
+import express from 'express'
 import cors from 'cors'
-import router from './router/clientRouter'
-
+import { clientRouter } from "./router/clientRouter.js"
 const app = express()
-const port = 3000
 app.use(cors())
 app.use(express.json())
-app.use('api/', router)
+const PORT = 3000;
 
-app.listen(port, (req, res) => {
-  console.log(`listen to port ${port} ...`)
+app.use("/clients", clientRouter)
+
+app.listen(PORT, (req, res) => {
+  console.log('running on 3000')
 })

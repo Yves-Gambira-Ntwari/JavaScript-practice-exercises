@@ -1,18 +1,13 @@
 import pg from 'pg'
 import env from 'dotenv'
-import { text } from 'express';
 
-const db = new pgClient({
-  user: process.env.PG_USER,
+env.config()
+export const db = new pg.Client({
+  user: 'postgres',
   host: process.env.PG_HOST,
   database: process.env.PG_DATABASE,
-  password: process.env.PG_PASSWORD,
+  password: '12345678',
   port: process.env.PG_PORT
 })
 
-db.connect();
-db.on('error', (err) =>{
-  console.log('not', err)
-  process.exit(-1)
-})
-export const query = (text, params) => db.query(text, params)
+db.connect().then(() => console.log("Connected"))

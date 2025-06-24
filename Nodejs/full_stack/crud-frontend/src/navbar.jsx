@@ -1,4 +1,4 @@
-export default function NavBar({onOpen}) {
+export default function NavBar() {
   return (
     <>
       <nav>
@@ -7,9 +7,6 @@ export default function NavBar({onOpen}) {
         </div>
         <div className="search">
           <input type="search" name="" id="" />
-        </div>
-        <div className="button">
-          <button onClick={onOpen}>Add Client</button>
         </div>
       </nav>
     </>
