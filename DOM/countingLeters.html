@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <label for="input">Text</label>
+    <input type="text" id="input" />
+    <button id="btn">Submit</button>
+    <p id="para"></p>
+  </head>
+  <body>
+    <script>
+      const btn = document.querySelector("#btn");
+      const input = document.querySelector("#input");
+      let value = [];
+      input.addEventListener("input", (e) => {
+        value = e.target.value.split("");
+      });
+      btn.addEventListener("click", () => {
+        let count = 0;
+        if (value.length !== 0) {
+          let timer = setInterval(() => {
+            if (count < value.length) {
+              count++;
+              span = document.createElement("span");
+              span.textContent = value[count - 1];
+              para.append(span);
+            } else {
+              stop();
+            }
+          }, 50);
+          function stop() {
+            clearInterval(timer);
+            console.log("done");
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
