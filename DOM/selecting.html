@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p class="test" id="test1">hello</p>
+    <p class="test">Gambira</p>
+    <h1 id="main-heading">hhhffff</h1>
+    <h1 id="other-heading">jjjjj</h1>
+    <script>
+const mainHeading = document.querySelector('#main-heading');
+const htmlTextToAdd = '<h2>Skydiving is fun!</h2>';
+
+mainHeading.insertAdjacentHTML('afterend', htmlTextToAdd);
+    </script>
+  </body>
+</html>
