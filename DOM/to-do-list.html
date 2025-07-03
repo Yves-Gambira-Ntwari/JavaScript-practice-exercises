@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    body{
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    ul{
+      list-style-type: none;
+    }
+    i,
+    li,
+    button{
+      cursor: pointer;
+    }
+    .form{
+      width: 50%;
+      margin-top: -2%;
+    }
+
+    button{
+      padding: 15px 30px;
+      border-radius: 10px;
+      border: none;
+      color: white;
+    }
+
+    .btn{
+      background-color: #4c5bb3;
+    }
+    input{
+      width: 50%;
+      padding: 10px;
+      outline: none;
+      border: none;
+      border-bottom: 1px solid grey;
+      background-color: rgb(225, 241, 236);
+    }
+    ul li{
+      padding: 10px;
+      width: 65%;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #9e9bd2;
+      font-size: 15px;
+    }
+
+    ul li i{
+      color: #df6c91;
+    }
+
+    ul li div{
+      display: flex;
+      gap: 
+      2rem;
+    }
+
+    .header{
+      background-color: #4c5bb3;
+      color: white;
+      height: 5rem;
+      }
+
+    .form-header{
+      background-color: #4c5bb3;
+      text-align: center;
+      color: white;
+    }
+
+    .to-do{
+      justify-items: center;
+      width: 100%;
+    }
+
+    .label{
+      color: #9e9bd2;
+    }
+
+    input[type=checkbox]:checked{
+      accent-color: #df6c91;
+    }
+
+    .delete{
+      background-color: #df6c91;
+    }
+    .line-through{
+      text-decoration: line-through;
+    }
+
+    .deleting-btn{
+      display: none;
+    }
+    .active{
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <!-- <p>to</p> -->
+  </div>
+  <div class="to-do">
+    <div class="form">
+      <div class="form-header">
+        <h1>Todo list</h1>
+      </div>
+      <label for="input" class="label">Add a new Task</label>
+      <div class="inputs">
+        <input type="text" id="input" placeholder="Add Item">
+        <button class="btn" id="add">Add Todo</button>    
+      </div>
+      <ul>
+      <!-- <li>
+        <div class="first-div">
+          <input type="checkbox">
+          <span>Banana</span>
+        </div>
+        <div class="last-div">
+          <i class="fa fa-times-circle" aria-hidden="true"></i>
+        </div>
+      </li> -->
+      </ul>
+      <div class="deleting-btn" id="myDelete">
+        <button class="delete">Delete Selected</button>
+      </div>
+    </div>
+  </div>
+  </div>
+  <script>
+    const input = document.querySelector("#input")
+    const add = document.querySelector("#add")
+    const ul = document.querySelector("ul")
+    const myDelete = document.querySelector("#myDelete")
+    add.addEventListener('click', ()=>{
+      const value = input.value
+      if(value !== ""){
+        function createTodo(){
+          
+        }
+        const li = document.createElement("li")
+        const firstDiv = document.createElement("div")
+        firstDiv.className = "first-div"
+        const check = document.createElement("input")
+        const ItemName = document.createElement("span")
+        ItemName.textContent = value 
+        check.type = "checkbox"
+        firstDiv.append(check, ItemName)
+        const lastDiv = document.createElement("div")
+        lastDiv.className = 'last-div'
+        const close = document.createElement("i")
+        close.className = "fa fa-times-circle"
+        lastDiv.append(close)
+        li.append(firstDiv, lastDiv)
+        ul.appendChild(li)
+        close.addEventListener("click", (e)=>{
+          const parentLi = close.parentElement.parentElement
+          ul.removeChild(parentLi)
+        })
+        function deleteSelected(){
+          const deleteParent = check.parentElement.parentElement
+          ul.removeChild(deleteParent)
+        }
+        check.addEventListener("input", ()=>{
+          const checkSibling = check.nextSibling
+          if(check.checked){
+            checkSibling.classList.add("line-through")
+            myDelete.classList.add("active")
+          } else{
+            checkSibling.classList.remove("line-through")
+            myDelete.classList.remove("")
+          }
+        })
+        myDelete.addEventListener("click", ()=>{
+          if(check.checked){
+            deleteSelected()
+          }
+        })
+      }
+    })
+  </script>
+</body>
+</html>
