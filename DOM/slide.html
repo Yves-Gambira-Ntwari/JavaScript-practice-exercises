@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      .parent {
+        background-color: green;
+        position: relative;
+        width: 100%;
+        height: 90vh;
+        display: flex;
+        overflow-x: hidden;
+      }
+
+      .slide {
+        flex: 0 0 auto;
+        background-color: aqua;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+        display: inline-block;
+        transition: 300ms;
+      }
+      img {
+        width: 100%;
+        top: 0;
+        bottom: 0;
+      }
+
+      .icons {
+        position: fixed;
+        z-index: 999;
+        top: 50%;
+        right: 2%;
+        color: white;
+      }
+      .left {
+        left: 2%;
+      }
+      .icons i {
+        background-color: rgb(53, 52, 52);
+        padding: 15px;
+        font-size: large;
+        transition: 300ms;
+      }
+
+      .icons i:hover {
+        background-color: black;
+      }
+
+      .displays{
+        color: white;
+        position: absolute;
+        top: 5%;
+        left: 5%;
+        font-size: x-large;
+        font-weight: bold;
+      }
+
+      .circle{
+        width: 20px;
+        height: 20px;
+        background-color: rgb(161, 161, 161);
+        border-radius: 50%;
+      }
+
+      .mycircle{
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 2%;
+      }
+
+      .mycircle .active{
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      <div class="slide">
+        <img src="images/pexels-ifreestock-585752.jpg" alt="" />
+      </div>
+      <div class="slide">
+        <img src="images/pexels-nemuel-6424587.jpg" alt="" />
+      </div>
+      <div class="slide">
+        <img src="images/pexels-sora-shimazaki-5935788.jpg" alt="" />
+      </div>
+      <div class="slide">
+        <img src="images/pexels-tima-miroshnichenko-5380792.jpg" alt="" />
+      </div>
+      <div class="icons left">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+      </div>
+      <div class="icons right">
+        <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </div>
+      <div class="displays">
+        <p><span class="display-count">1</span>/4</p>
+      </div>
+    </div>
+    <div class="mycircle" id="mycircle">
+      <div class="circle">  
+      </div>
+      <div class="circle">
+      </div>
+      <div class="circle">
+      </div>
+      <div class="circle">
+    </div>
+    </div>
+    <script>
+      const parent = document.querySelector(".parent");
+      const left = document.querySelector(".left");
+      const right = document.querySelector(".right");
+      const slide = document.querySelectorAll(".slide");
+      const displayCount = document.querySelector(".display-count")
+      const circle = document.querySelectorAll(".circle")
+      const length = slide.length;
+      let count = 0;
+      let margin = 0;
+      circle[count].classList.add("active")
+      right.addEventListener("click", () => {
+        if (count < length - 1) {
+          count++;
+          margin = -100 * count;
+          slide[0].style.marginLeft = `${margin}%`;
+          displayCount.textContent = count+1
+          circle[count].classList.add("active")
+          circle[count-1].classList.remove("active")
+        }
+      });
+      left.addEventListener("click", () => {
+        if (count > 0) {
+          count--;
+          margin = -100 * count;
+          slide[0].style.marginLeft = `${margin}%`;
+          displayCount.textContent = count+1
+          circle[count].classList.add("active")
+          circle[count+1].classList.remove("active")
+        }
+      });
+    </script>
+  </body>
+</html>
