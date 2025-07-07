@@ -6,6 +6,16 @@ const factorial  = (n) =>{
 }
 console.log(factorial(3))
 
+
+
+
+
+
+
+
+
+
+
 const fibonacci = (n) =>{
   return n <=2 ? 1 : fibonacci(n - 1) + fibonacci(n - 2)
 }

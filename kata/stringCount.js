@@ -15,4 +15,4 @@ function getMiddle(s) {
     return charAt;
 }
 
-console.log(getMiddle("middle"))
+console.log(getMiddle("abca"))

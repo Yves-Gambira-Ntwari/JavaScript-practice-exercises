@@ -24,8 +24,10 @@
             if (count < value.length) {
               count++;
               span = document.createElement("span");
-              span.textContent = value[count - 1];
-              para.append(span);
+
+              span.innerText = value[count - 1];
+              para.append(span)
+              
             } else {
               stop();
             }
