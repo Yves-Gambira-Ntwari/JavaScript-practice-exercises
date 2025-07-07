@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      img {
+        width: 100%;
+      }
+      .card {
+        background-color: rgb(176, 175, 175);
+      }
+      .items {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        padding: 0 10rem;
+        justify-items: center;
+      }
+
+      .card {
+        width: 15rem;
+        justify-items: center;
+      }
+      .img {
+        position: relative;
+        overflow: hidden;
+        background-color: black;
+      }
+
+      .amount {
+        display: flex;
+        justify-items: center;
+      }
+
+      .input input[type="number"] {
+        width: 20%;
+      }
+
+      .cost {
+        font-size: 30px;
+        color: rgb(7, 111, 111);
+      }
+
+      table,
+      tr {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      table i {
+        color: red;
+        font-size: 25px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Store</h1>
+      <h2>Products</h2>
+      <div class="items">
+        <div class="card">
+          <div class="card-name">
+            <h2>Gaming PC</h2>
+          </div>
+          <div class="img">
+            <img src="../DOM/images/pexels-ifreestock-585752.jpg" alt="" />
+          </div>
+          <div class="cost">
+            <span>200$</span>
+          </div>
+          <div class="amount">
+            <div class="input">
+              <input type="number" name="" id="" />
+            </div>
+            <div class="btn">
+              <button>Buy</button>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-name">
+            <h2>Gaming PC</h2>
+          </div>
+          <div class="img">
+            <img src="../DOM/images/pexels-ifreestock-585752.jpg" alt="" />
+          </div>
+          <div class="cost">
+            <span>200$</span>
+          </div>
+          <div class="amount">
+            <div class="input">
+              <input type="number" name="" id="" />
+            </div>
+            <div class="btn">
+              <button>Buy</button>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-name">
+            <h2>Gaming PC</h2>
+          </div>
+          <div class="img">
+            <img src="../DOM/images/pexels-ifreestock-585752.jpg" alt="" />
+          </div>
+          <div class="cost">
+            <span>200$</span>
+          </div>
+          <div class="amount">
+            <div class="input">
+              <input type="number" name="" id="" />
+            </div>
+            <div class="btn">
+              <button>Buy</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="shoping-table">
+      <div class="table-header">
+        <h2>Shoping Cart</h2>
+      </div>
+      <table border="1">
+        <tr>
+          <th>Id</th>
+          <th>Product</th>
+          <th>Quality</th>
+          <th>Price</th>
+          <th>Total</th>
+          <th>Delete</th>
+        </tr>
+      </table>
+    </div>
+  </body>
+  <script>
+    const buy = document.querySelectorAll(".btn button");
+    let count = 0;
+    buy.forEach((ele) => {
+      ele.addEventListener("click", () => {
+        count++;
+        const input =
+          ele.parentElement.previousElementSibling.firstElementChild.value;
+        if (input > 0) {
+          const price = parseInt(
+            ele.parentElement.parentElement.previousElementSibling
+              .firstElementChild.textContent
+          );
+          const itemName =
+            ele.parentElement.parentElement.previousElementSibling
+              .previousElementSibling.previousElementSibling.firstElementChild
+              .textContent;
+
+          const table = document.querySelector("table");
+          const tr = document.createElement("tr");
+          const td = document.createElement("td");
+          tr.innerHTML = `
+        <td>${count}</td>
+        <td>${itemName}</td>
+        <td>${input}</td>
+        <td>${price}</td>
+        <td>${price * input}</td>
+        <td><i class="fa fa-times" aria-hidden="true"></i></td>
+        `;
+          table.append(tr);
+          const closeBtn = document.querySelectorAll("table i");
+          closeBtn.forEach((item) => {
+            item.addEventListener("click", () => {
+              const parent = item.parentElement.parentElement;
+              table.removeChild(parent);
+            });
+          });
+        }
+      });
+    });
+  </script>
+</html>
