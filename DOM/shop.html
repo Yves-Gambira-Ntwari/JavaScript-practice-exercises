@@ -33,6 +33,7 @@
         position: relative;
         overflow: hidden;
         background-color: black;
+        height: 10rem;
       }
 
       .amount {
@@ -88,13 +89,13 @@
         </div>
         <div class="card">
           <div class="card-name">
-            <h2>Gaming PC</h2>
+            <h2>Designing PC</h2>
           </div>
           <div class="img">
-            <img src="../DOM/images/pexels-ifreestock-585752.jpg" alt="" />
+            <img src="../DOM/images/pexels-nemuel-6424587.jpg" alt="" />
           </div>
           <div class="cost">
-            <span>200$</span>
+            <span>150$</span>
           </div>
           <div class="amount">
             <div class="input">
@@ -107,13 +108,16 @@
         </div>
         <div class="card">
           <div class="card-name">
-            <h2>Gaming PC</h2>
+            <h2>All in one PC</h2>
           </div>
           <div class="img">
-            <img src="../DOM/images/pexels-ifreestock-585752.jpg" alt="" />
+            <img
+              src="../DOM/images/pexels-tima-miroshnichenko-5380792.jpg"
+              alt=""
+            />
           </div>
           <div class="cost">
-            <span>200$</span>
+            <span>300$</span>
           </div>
           <div class="amount">
             <div class="input">
@@ -140,11 +144,15 @@
           <th>Delete</th>
         </tr>
       </table>
+      <div id="mainTotal">
+        <p>Total:<span>0</span></p>
+      </div>
     </div>
   </body>
   <script>
     const buy = document.querySelectorAll(".btn button");
     let count = 0;
+    const totalSum = [];
     buy.forEach((ele) => {
       ele.addEventListener("click", () => {
         count++;
@@ -163,22 +171,32 @@
           const table = document.querySelector("table");
           const tr = document.createElement("tr");
           const td = document.createElement("td");
+          const mainTotal = document.querySelector("#mainTotal p span");
+
+          let total = price * input;
           tr.innerHTML = `
         <td>${count}</td>
         <td>${itemName}</td>
         <td>${input}</td>
         <td>${price}</td>
-        <td>${price * input}</td>
+        <td class="cost">${total}</td>
         <td><i class="fa fa-times" aria-hidden="true"></i></td>
         `;
           table.append(tr);
+          totalSum.push(total);
+          let sum = totalSum.reduce((a, b) => a + b, 0);
           const closeBtn = document.querySelectorAll("table i");
           closeBtn.forEach((item) => {
             item.addEventListener("click", () => {
               const parent = item.parentElement.parentElement;
+              const removePrice =
+                item.parentElement.previousElementSibling.textContent;
+              delete totalSum[removePrice];
+              sum = sum - removePrice;
               table.removeChild(parent);
             });
           });
+          mainTotal.textContent = sum;
         }
       });
     });
