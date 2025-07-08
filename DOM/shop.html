@@ -152,7 +152,6 @@
   <script>
     const buy = document.querySelectorAll(".btn button");
     let count = 0;
-    const totalSum = [];
     buy.forEach((ele) => {
       ele.addEventListener("click", () => {
         count++;
@@ -179,24 +178,32 @@
         <td>${itemName}</td>
         <td>${input}</td>
         <td>${price}</td>
-        <td class="cost">${total}</td>
+        <td class="totalCost">${total}</td>
         <td><i class="fa fa-times" aria-hidden="true"></i></td>
         `;
+
           table.append(tr);
-          totalSum.push(total);
-          let sum = totalSum.reduce((a, b) => a + b, 0);
           const closeBtn = document.querySelectorAll("table i");
+          const totalCost = Array.from(document.querySelectorAll(".totalCost"));
+          totalCost.forEach((ele) => {
+            console.log(ele);
+          });
+          function deleteCost() {
+            return totalCost.reduce((a, b) => a + +b.textContent, 0);
+          }
+
           closeBtn.forEach((item) => {
             item.addEventListener("click", () => {
               const parent = item.parentElement.parentElement;
-              const removePrice =
+              const costToRemove =
                 item.parentElement.previousElementSibling.textContent;
-              delete totalSum[removePrice];
-              sum = sum - removePrice;
               table.removeChild(parent);
+              mainTotal.textContent = deleteCost() - costToRemove;
+              console.log(costToRemove);
             });
           });
-          mainTotal.textContent = sum;
+          mainTotal.textContent = deleteCost();
+          console.log(totalCost);
         }
       });
     });
