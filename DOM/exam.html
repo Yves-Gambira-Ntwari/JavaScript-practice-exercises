@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .exam {
+        background-color: rgb(14, 3, 81);
+        color: white;
+        padding: 10px;
+        border-radius: 10px;
+      }
+
+      .exam p {
+        background-color: white;
+        color: black;
+        padding: 10px;
+        border-radius: 10px;
+        font-size: 25px;
+        cursor: pointer;
+      }
+
+      p.corect-answer {
+        background-color: green;
+        color: white;
+      }
+
+      p.wrong-answer {
+        background-color: rgb(197, 39, 7);
+        color: white;
+      }
+
+      .exam button {
+        padding: 10px;
+        width: 20%;
+        border-radius: 10px;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="exam" id="exam">
+        <div class="header">
+          <h1 class="question" id="question"></h1>
+        </div>
+        <div id="displayanswer"></div>
+        <div class="submit">
+          <button id="next">Start</button>
+        </div>
+      </div>
+      <p id="marks"></p>
+    </main>
+  </body>
+  <script>
+    const exam = [
+      {
+        id: 1,
+        other: {
+          id: 1,
+          questions: "What is You name?",
+          answers: ["Gambira", "John", "Piker", "masabo"],
+          corect: "Gambira",
+        },
+      },
+      {
+        id: 2,
+        other: {
+          id: 2,
+          questions: "Where do you live?",
+          answers: ["Mukamira", "Gisenyi", "Kigali", "Muhanga"],
+          corect: "Mukamira",
+        },
+      },
+      {
+        id: 3,
+        other: {
+          id: 3,
+          questions: "How old are you?",
+          answers: ["15", "20", "13", "21"],
+          corect: "21",
+        },
+      },
+    ];
+    const correctMarks = [];
+    const next = document.querySelector("#next");
+    const displayExam = document.querySelector("#displayanswer");
+
+    const marks = document.querySelector("#marks");
+    let id = -1;
+    next.addEventListener("click", nextQuestion);
+    function nextQuestion() {
+      if (id < exam.length - 1) {
+        id += 1;
+        if (id >= 0) {
+          displayExam.innerHTML = " ";
+          next.textContent = "Next";
+        }
+
+        console.log(id);
+        let currentQuestion = exam[id];
+        function displayWork() {
+          const displayQuestion = document.querySelector("#question");
+          displayQuestion.textContent = `${currentQuestion["id"]}. ${currentQuestion["other"].questions}`;
+          const answersToDisplay = currentQuestion.other.answers;
+          function selecting() {}
+          answersToDisplay.forEach((ele) => {
+            const paragraph = document.createElement("p");
+            paragraph.className = "answer";
+            paragraph.textContent = ele;
+            displayExam.append(paragraph);
+            const corectPara =
+              paragraph.textContent === currentQuestion["other"].corect;
+            paragraph.addEventListener("click", () => {
+              if (corectPara) {
+                paragraph.classList.add("corect-answer");
+                correctMarks.push(paragraph);
+              } else {
+                const parentEle = paragraph.parentElement;
+                Array.from(parentEle.children).forEach((ele) => {
+                  if (ele.textContent === currentQuestion["other"].corect) {
+                    ele.classList.add("corect-answer");
+                  }
+                });
+                paragraph.classList.add("wrong-answer");
+              }
+            });
+          });
+        }
+        displayWork();
+      } else {
+        next.innerText = "Show Marks";
+        if (correctMarks.length < 2) {
+          marks.classList.add("wrong-answer");
+        } else {
+          marks.classList.add("corect-answer");
+        }
+        marks.textContent = `You've got ${correctMarks.length * 5} Marks`;
+      }
+    }
+  </script>
+</html>
