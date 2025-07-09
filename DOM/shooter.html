@@ -11,6 +11,8 @@
         background-color: aqua;
         position: relative;
         overflow: hidden;
+        transition: 500ms;
+        transform: scale(0);
       }
       .bow {
         width: 5rem;
@@ -48,9 +50,43 @@
         top: 20%;
         right: 20%;
       }
+
+      .game-start {
+        justify-items: center;
+        align-content: center;
+        position: absolute;
+        left: 20%;
+      }
+
+      h1 {
+        font-size: 50px;
+      }
+
+      .game-over button, .game-start button {
+        width: 50%;
+        padding: 10px;
+        background-color: black;
+        color: white;
+        margin-left: 20%;
+        margin-top: 10%;
+      }
+
+      .game-over{
+        transform: scale(0);
+        position: absolute;
+        left: 20%;
+      }
     </style>
   </head>
   <body>
+    <div class="game-start">
+      <h1>Play Game Arrow shooter ninja</h1>
+      <button class="start" id="start">Start Game</button>
+    </div>
+    <div class="game-over">
+      <button class="start" id="start-again">Start Again</button>
+      <marquee behavior="justify-items" direction="right"><h1>Game Over Thank U!!</h1></marquee>
+    </div>
     <div class="game" id="game">
       <div class="bow" id="bow">
         <div class="arrow" id="arrow"></div>
@@ -71,16 +107,34 @@
       const string = document.querySelector("#string");
       const down = document.querySelector("#down");
       const up = document.querySelector("#up");
-      const target = document.querySelector("#target")
-      const changePosition = document.querySelector("#change")
-      changePosition.addEventListener("click", ()=>{
-        let randomPosTop = Math.random()*50
-        target.style.top = `${randomPosTop}%`
-      })
+      const target = document.querySelector("#target");
+      const changePosition = document.querySelector("#change");
+      const startGame = document.querySelector("#start");
+      const startAgain = document.querySelector("#start-again");
+      changePosition.addEventListener("click", () => {
+        let randomPosTop = Math.random() * 50;
+        target.style.top = `${randomPosTop}%`;
+      });
       let holdTime;
       let seconds = 0;
       let posNumber = 0;
+
+      function play() {
+        const parent = this.parentElement;
+        game.style.transform = "scale(1)";
+        parent.style.transform = "scale(0)";
+      }
       
+      function gameOver(){
+        const parent = startAgain.parentElement
+        parent.style.transform = "scale(1)"
+        game.style.transform = "scale(0)";
+        console.log(parent)
+      }
+
+      startGame.addEventListener("click", play);
+      startAgain.addEventListener("click", play);
+
       up.addEventListener("click", () => {
         posNumber--;
         console.log(posNumber);
@@ -100,7 +154,10 @@
           clearInterval(holdTime);
           arrow.style.left = `${seconds * 15}rem`;
           arrow.style.width = `${5}rem`;
-          console.log(currentArrowPosition.right)
+          setTimeout(() =>{
+            gameOver()
+          }, 1000)
+
         });
       });
     </script>
