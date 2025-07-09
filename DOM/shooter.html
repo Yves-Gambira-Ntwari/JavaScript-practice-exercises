@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .game {
+        margin-left: 2%;
+        margin-top: 10%;
+        background-color: aqua;
+        position: relative;
+      }
+      .bow {
+        width: 5rem;
+        height: 10rem;
+        background-color: white;
+        border: 5px solid black;
+        border-bottom-right-radius: 500%;
+        border-top-right-radius: 500%;
+        position: relative;
+        border-left-color: transparent;
+        transform: rotateX(50deg);
+      }
+
+      .arrow {
+        width: 10rem;
+        height: 5px;
+        background-color: black;
+        position: absolute;
+        top: 50%;
+        transition: 300ms;
+      }
+
+      .string {
+        height: 10rem;
+        width: 2px;
+        background-color: black;
+      }
+
+      .target{
+        background-color: red;
+        width: 5rem;
+        height: 5rem;
+        border-radius: 50%;
+        position: absolute;
+        top: 20%;
+        right: 5%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="game" id="game">
+      <div class="bow" id="bow">
+        <div class="arrow" id="arrow"></div>
+        <div class="string" id="string"></div>
+      </div>
+      <div class="target"></div>
+      <div class="position" id="position">
+        <button id="down">Down</button>
+        <button id="up">Up</button>
+      </div>
+    </div>
+
+    <script>
+      const game = document.querySelector("#game");
+      const bow = document.querySelector("#bow");
+      const arrow = document.querySelector("#arrow");
+      const string = document.querySelector("#string");
+      const down = document.querySelector("#down")
+      const up = document.querySelector("#up")
+      let holdTime;
+      let seconds = 0;
+      let posNumber = 0
+      up.addEventListener("click", ()=>{
+        posNumber--
+        console.log(posNumber)
+        bow.style.transform = `rotate(${posNumber}deg)`;
+      })
+      down.addEventListener("click", ()=>{
+        posNumber++
+        console.log(posNumber)
+        bow.style.transform = `rotate(${posNumber}deg)`;
+      })
+      bow.addEventListener("mousedown", () => {
+        holdTime = setInterval(() => {
+          seconds++;
+          arrow.style.left = `-${seconds * 35}px`;
+        }, 1000);
+        bow.addEventListener("mouseup", () => {
+          clearInterval(holdTime);
+          arrow.style.left = `${seconds * 15}rem`;
+        });
+    });
+
+    </script>
+  </body>
+</html>
