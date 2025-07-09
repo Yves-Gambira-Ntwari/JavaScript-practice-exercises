@@ -10,6 +10,7 @@
         margin-top: 10%;
         background-color: aqua;
         position: relative;
+        overflow: hidden;
       }
       .bow {
         width: 5rem;
@@ -29,7 +30,7 @@
         background-color: black;
         position: absolute;
         top: 50%;
-        transition: 300ms;
+        transition: 500ms;
       }
 
       .string {
@@ -38,14 +39,14 @@
         background-color: black;
       }
 
-      .target{
+      .target {
         background-color: red;
-        width: 5rem;
+        width: 3rem;
         height: 5rem;
         border-radius: 50%;
         position: absolute;
         top: 20%;
-        right: 5%;
+        right: 20%;
       }
     </style>
   </head>
@@ -55,10 +56,11 @@
         <div class="arrow" id="arrow"></div>
         <div class="string" id="string"></div>
       </div>
-      <div class="target"></div>
+      <div class="target" id="target"></div>
       <div class="position" id="position">
         <button id="down">Down</button>
         <button id="up">Up</button>
+        <button id="change">Change Lever</button>
       </div>
     </div>
 
@@ -67,21 +69,28 @@
       const bow = document.querySelector("#bow");
       const arrow = document.querySelector("#arrow");
       const string = document.querySelector("#string");
-      const down = document.querySelector("#down")
-      const up = document.querySelector("#up")
+      const down = document.querySelector("#down");
+      const up = document.querySelector("#up");
+      const target = document.querySelector("#target")
+      const changePosition = document.querySelector("#change")
+      changePosition.addEventListener("click", ()=>{
+        let randomPosTop = Math.random()*50
+        target.style.top = `${randomPosTop}%`
+      })
       let holdTime;
       let seconds = 0;
-      let posNumber = 0
-      up.addEventListener("click", ()=>{
-        posNumber--
-        console.log(posNumber)
+      let posNumber = 0;
+      
+      up.addEventListener("click", () => {
+        posNumber--;
+        console.log(posNumber);
         bow.style.transform = `rotate(${posNumber}deg)`;
-      })
-      down.addEventListener("click", ()=>{
-        posNumber++
-        console.log(posNumber)
+      });
+      down.addEventListener("click", () => {
+        posNumber++;
+        console.log(posNumber);
         bow.style.transform = `rotate(${posNumber}deg)`;
-      })
+      });
       bow.addEventListener("mousedown", () => {
         holdTime = setInterval(() => {
           seconds++;
@@ -90,9 +99,10 @@
         bow.addEventListener("mouseup", () => {
           clearInterval(holdTime);
           arrow.style.left = `${seconds * 15}rem`;
+          arrow.style.width = `${5}rem`;
+          console.log(currentArrowPosition.right)
         });
-    });
-
+      });
     </script>
   </body>
 </html>
