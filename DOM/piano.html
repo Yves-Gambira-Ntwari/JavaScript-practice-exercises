@@ -37,6 +37,11 @@
         width: 50%;
         border: 1px solid rgba(0, 0, 0, 0.42);
       }
+
+      .white.pressed{
+        background-color: rgb(216, 214, 214);
+        transform: scale(0.99);
+      }
     </style>
   </head>
   <body>
@@ -66,6 +71,7 @@
   </body>
   <script>
     const piano = document.querySelector(".piano .keys");
+    
     const doAudio = document.querySelector("#doAudio");
     const reAudio = document.querySelector("#reAudio");
     const miAudio = document.querySelector("#miAudio");
@@ -73,7 +79,7 @@
     const solAudio = document.querySelector("#solAudio");
     const laAudio = document.querySelector("#laAudio");
     const siAudio = document.querySelector("#siAudio");
-    piano.addEventListener("click", (event) => {
+    piano.addEventListener("mousedown", (event) => {
       let target = event.target;
       switch (target.id) {
         case "do":
@@ -102,30 +108,73 @@
           break;
       }
     });
-    document.addEventListener("keypress", (e)=>{
+
+
+    document.addEventListener("keydown", (e) => {
       let key = e.key
-      console.log(key)
-            switch (key) {
+      switch (key) {
         case "a":
           doAudio.play();
+          doAudio.addEventListener("play", ()=>{
+            document.querySelector("#do").classList.add("pressed")
+          })
+          doAudio.addEventListener("ended", ()=>{
+            document.querySelector("#do").classList.remove("pressed")
+          })
           break;
         case "d":
           reAudio.play();
+          reAudio.addEventListener("play", ()=>{
+            document.querySelector("#re").classList.add("pressed")
+          })
+          reAudio.addEventListener("ended", ()=>{
+            document.querySelector("#re").classList.remove("pressed")
+          })
           break;
         case "g":
           miAudio.play();
+          miAudio.addEventListener("play", ()=>{
+            document.querySelector("#mi").classList.add("pressed")
+          })
+          miAudio.addEventListener("ended", ()=>{
+            document.querySelector("#mi").classList.remove("pressed")
+          })
           break;
         case "h":
           faAudio.play();
+          faAudio.addEventListener("play", ()=>{
+            document.querySelector("#fa").classList.add("pressed")
+          })
+          faAudio.addEventListener("ended", ()=>{
+            document.querySelector("#fa").classList.remove("pressed")
+          })
           break;
         case "k":
           solAudio.play();
+          solAudio.addEventListener("play", ()=>{
+            document.querySelector("#sol").classList.add("pressed")
+          })
+          solAudio.addEventListener("ended", ()=>{
+            document.querySelector("#sol").classList.remove("pressed")
+          })
           break;
         case "l":
           laAudio.play();
+          laAudio.addEventListener("play", ()=>{
+            document.querySelector("#la").classList.add("pressed")
+          })
+          laAudio.addEventListener("ended", ()=>{
+            document.querySelector("#la").classList.remove("pressed")
+          })
           break;
         case ";":
           siAudio.play();
+          siAudio.addEventListener("play", ()=>{
+            document.querySelector("#si").classList.add("pressed")
+          })
+          siAudio.addEventListener("ended", ()=>{
+            document.querySelector("#si").classList.remove("pressed")
+          })
           break;
         default:
           console.log("none");
