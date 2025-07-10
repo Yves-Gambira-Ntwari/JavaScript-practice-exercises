@@ -110,8 +110,7 @@
             paragraph.className = "answer";
             paragraph.textContent = ele;
             displayExam.append(paragraph);
-            const corectPara =
-              paragraph.textContent === currentQuestion["other"].corect;
+            const corectPara = paragraph.textContent === currentQuestion["other"].corect;
             paragraph.addEventListener("click", () => {
               if (corectPara) {
                 paragraph.classList.add("corect-answer");

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body{
+        background-color: grey;
+      }
+      .piano {
+        background-color: white;
+        overflow: hidden;
+        height: 15rem;
+        padding: 0px 1px;
+        width: 50%;
+      }
+
+      .black{
+        background-color: black;
+        overflow: hidden;
+        height: 10rem;
+        width: 20rem;
+        padding: 0px 1px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+
+      .keys{
+        display: flex;
+        /* gap: 3rem; */
+      }
+
+      .piano .white{
+        background-color: white;
+        height: 14.5rem;
+        width: 50%;
+        border: 1px solid rgba(0, 0, 0, 0.42);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="piano" id="piano">
+      <div class="keys" id="keys">
+        <div class="white" id="do"></div>
+        <div class="black"></div>
+        <div class="white" id="re"></div>
+        <div class="black"></div>
+        <div class="white" id="mi"></div>
+        <div class="white" id="fa"></div>
+        <div class="black"></div>
+        <div class="white" id="sol"></div>
+        <div class="black"></div>
+        <div class="white" id="la"></div>
+        <div class="black"></div>
+        <div class="white" id="si"></div>
+      </div>
+    </div>
+    <audio id="doAudio" src="audio/1.mp3"></audio>
+    <audio id="reAudio" src="audio/2.mp3"></audio>
+    <audio id="miAudio" src="audio/3.mp3"></audio>
+    <audio id="faAudio" src="audio/4.mp3"></audio>
+    <audio id="solAudio" src="audio/5.mp3"></audio>
+    <audio id="laAudio" src="audio/6.mp3"></audio>
+    <audio id="siAudio" src="audio/7.mp3"></audio>
+  </body>
+  <script>
+    const piano = document.querySelector(".piano .keys")
+    const doAudio = document.querySelector("#doAudio")
+    const reAudio = document.querySelector("#reAudio")
+    const miAudio = document.querySelector("#miAudio")
+    const faAudio = document.querySelector("#faAudio")
+    const solAudio = document.querySelector("#solAudio")
+    const laAudio = document.querySelector("#laAudio")
+    const siAudio = document.querySelector("#siAudio")
+    piano.addEventListener("click", (event)=>{
+      let target = event.target
+      switch(target.id){
+        case "do":
+          doAudio.play()
+          break
+          case "re":
+          reAudio.play()
+        break
+        case "mi": miAudio.play()
+        break
+        case "fa": faAudio.play()
+        break
+        case "sol": solAudio.play()
+        break
+        case "la": laAudio.play()
+        break
+        case "si": siAudio.play()
+        break
+        default: console.log("none")
+        break
+        
+      }
+    })
+  </script>
+</html>
