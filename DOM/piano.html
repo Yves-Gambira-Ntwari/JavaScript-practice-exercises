@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      body{
+      body {
         background-color: grey;
       }
       .piano {
@@ -16,7 +16,7 @@
         width: 50%;
       }
 
-      .black{
+      .black {
         background-color: black;
         overflow: hidden;
         height: 10rem;
@@ -26,12 +26,12 @@
         border-bottom-right-radius: 10px;
       }
 
-      .keys{
+      .keys {
         display: flex;
         /* gap: 3rem; */
       }
 
-      .piano .white{
+      .piano .white {
         background-color: white;
         height: 14.5rem;
         width: 50%;
@@ -65,37 +65,72 @@
     <audio id="siAudio" src="audio/7.mp3"></audio>
   </body>
   <script>
-    const piano = document.querySelector(".piano .keys")
-    const doAudio = document.querySelector("#doAudio")
-    const reAudio = document.querySelector("#reAudio")
-    const miAudio = document.querySelector("#miAudio")
-    const faAudio = document.querySelector("#faAudio")
-    const solAudio = document.querySelector("#solAudio")
-    const laAudio = document.querySelector("#laAudio")
-    const siAudio = document.querySelector("#siAudio")
-    piano.addEventListener("click", (event)=>{
-      let target = event.target
-      switch(target.id){
+    const piano = document.querySelector(".piano .keys");
+    const doAudio = document.querySelector("#doAudio");
+    const reAudio = document.querySelector("#reAudio");
+    const miAudio = document.querySelector("#miAudio");
+    const faAudio = document.querySelector("#faAudio");
+    const solAudio = document.querySelector("#solAudio");
+    const laAudio = document.querySelector("#laAudio");
+    const siAudio = document.querySelector("#siAudio");
+    piano.addEventListener("click", (event) => {
+      let target = event.target;
+      switch (target.id) {
         case "do":
-          doAudio.play()
-          break
-          case "re":
-          reAudio.play()
-        break
-        case "mi": miAudio.play()
-        break
-        case "fa": faAudio.play()
-        break
-        case "sol": solAudio.play()
-        break
-        case "la": laAudio.play()
-        break
-        case "si": siAudio.play()
-        break
-        default: console.log("none")
-        break
-        
+          doAudio.play();
+          break;
+        case "re":
+          reAudio.play();
+          break;
+        case "mi":
+          miAudio.play();
+          break;
+        case "fa":
+          faAudio.play();
+          break;
+        case "sol":
+          solAudio.play();
+          break;
+        case "la":
+          laAudio.play();
+          break;
+        case "si":
+          siAudio.play();
+          break;
+        default:
+          console.log("none");
+          break;
       }
-    })
+    });
+    document.addEventListener("keypress", (e)=>{
+      let key = e.key
+      console.log(key)
+            switch (key) {
+        case "a":
+          doAudio.play();
+          break;
+        case "d":
+          reAudio.play();
+          break;
+        case "g":
+          miAudio.play();
+          break;
+        case "h":
+          faAudio.play();
+          break;
+        case "k":
+          solAudio.play();
+          break;
+        case "l":
+          laAudio.play();
+          break;
+        case ";":
+          siAudio.play();
+          break;
+        default:
+          console.log("none");
+          break;
+      }
+    });
   </script>
 </html>
