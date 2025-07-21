@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    :root{
+      --col: 9.8em;
+      --row: 8rem;
+      --gap: 2rem;
+    }
+    .container{
+      display: grid;
+      grid-template-columns: repeat(3, var(--col));
+      grid-template-rows: repeat(2, var(--row));
+      gap: var(--gap);
+      transition: 500ms;
+    }
+
+    .grid-full{
+      --row: 4rem;
+      --gap: 5rem;
+    }
+
+    .item{
+      width: 10rem;
+      background-color: aqua;
+    }
+  </style>
+</head>
+
+<body>
+  <button id="animate">animate</button>
+<div class="container" id="container">
+  <div class="item item-1"> block 1</div>
+  <div class="item item-2"> block 2</div>
+  <div class="item item-3">block 3 </div>
+  <div class="item item-4">block 4 </div>
+  <div class="item item-5">block 5 </div>
+  <div class="item item-6">block 6 </div>
+</div>
+</body>
+<script>
+  const btn = document.querySelector("#animate")
+  const container = document.querySelector("#container")
+  btn.addEventListener("click", ()=>{
+    container.classList.toggle("grid-full")
+
+  })
+</script>
+</html>
