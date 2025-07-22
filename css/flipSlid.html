@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+      }
+
+      .container {
+        background-color: rgb(21, 19, 19);
+        color: white;
+        height: 30rem;
+      }
+
+      .container .slide {
+        position: relative;
+        display: flex;
+        padding: 2rem;
+        overflow: hidden;
+        margin-left: 10%;
+      }
+      .item.active {
+        transform: scale(1);
+      }
+
+      .item {
+        flex-shrink: 0;
+        background: rgb(37, 36, 36);
+        padding: 10px;
+        border-radius: 10px;
+        width: 20rem;
+        height: 20rem;
+        box-shadow: 3px 5px 10px rgba(0, 0, 0, 1);
+        transition: 300ms;
+        transform: scale(0);
+        transition: 300ms;
+        /* margin-right: -5rem; */
+      }
+
+      .slide > :nth-child(1) {
+        transform: scale(1);
+      }
+      .slide > :nth-child(2) {
+        transform: scale(0.7);
+        margin-left: -3rem;
+      }
+
+      .slide > :nth-child(3) {
+        transform: scale(0.3);
+        margin-left: -10rem;
+      }
+
+      span {
+        color: grey;
+      }
+
+      .main p {
+        color: rgb(242, 88, 32);
+      }
+
+      .img {
+        position: relative;
+        overflow: hidden;
+        border-radius: 50%;
+        max-width: 4rem;
+        max-height: 4rem;
+        aspect-ratio: 1;
+      }
+
+      img {
+        width: 100%;
+      }
+
+      .btn {
+        padding: 10px;
+        border-radius: 10px;
+        background-color: rgb(73, 73, 73);
+        cursor: pointer;
+      }
+
+      #next {
+        background-color: rgb(11, 126, 11);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="slide" id="slide">
+        <div class="item">
+          <div class="header">
+            <p>Article <span>on Jun 26, 2024</span></p>
+            <h1>CSS positioning 1</h1>
+          </div>
+          <div class="main">
+            <p>Color</p>
+            <div class="img">
+              <img src="images/Jocks_images_132.jpg" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="header">
+            <p>Article <span>on Jun 26, 2024</span></p>
+            <h1>CSS positioning 2</h1>
+          </div>
+          <div class="main">
+            <p>Color</p>
+            <div class="img">
+              <img src="images/Jocks_images_132.jpg" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="header">
+            <p>Article <span>on Jun 26, 2024</span></p>
+            <h1>CSS positioning 3</h1>
+          </div>
+          <div class="main">
+            <p>Color</p>
+            <div class="img">
+              <img src="images/Jocks_images_132.jpg" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="header">
+            <p>Article <span>on Jun 26, 2024</span></p>
+            <h1>CSS positioning 4</h1>
+          </div>
+          <div class="main">
+            <p>Color</p>
+            <div class="img">
+              <img src="images/Jocks_images_132.jpg" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="header">
+            <p>Article <span>on Jun 26, 2024</span></p>
+            <h1>CSS positioning 5</h1>
+          </div>
+          <div class="main">
+            <p>Color</p>
+            <div class="img">
+              <img src="images/Jocks_images_132.jpg" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="header">
+            <p>Article <span>on Jun 26, 2024</span></p>
+            <h1>CSS positioning 6</h1>
+          </div>
+          <div class="main">
+            <p>Color</p>
+            <div class="img">
+              <img src="images/Jocks_images_132.jpg" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="controlls">
+        <btn class="btn" id="previous">Prev</btn>
+        <btn class="btn" id="next">Next</btn>
+      </div>
+    </div>
+  </body>
+  <script>
+    const next = document.querySelector("#next");
+    const prev = document.querySelector("#previous");
+    const slide = Array.from(document.querySelectorAll(".item"));
+    const slideParent = document.querySelector("#slide");
+    let count = 0;
+    let margin = 0;
+    next.addEventListener("click", () => {
+      const length = slide.length - 1;
+      if (length - count > 2) {
+        count++;
+        slide[count].style.transform = "scale(1)";
+        slide[count - 1].style.transform = "scale(0.7)";
+        slide[count + 1].style.transform = "scale(0.7)";
+        slide[count + 2].style.transform = "scale(0.3)";
+        slide[count + 2].style.marginLeft = "-10rem";
+        slide[count + 1].style.marginLeft = "-3rem";
+        slide[count - 1].style.marginLeft = "3rem";
+        slideParent.style.marginLeft = "-6rem";
+        if (count > 1) {
+          slide[count - 2].style.transform = "scale(0.3)";
+          slide[count - 2].style.marginRight = "-15rem";
+          if (count > 2) {
+            slide[count - 3].style.display = "none";
+          }
+        }
+        
+      }
+    });
+    prev.addEventListener("click", () => {
+      if(count > 0){
+        count--
+        slide[count].style.transform = "scale(1)";
+        slide[count+1].style.transform = "scale(0.7)"
+        slide[count+2].style.transform = "scale(0.3)";
+        slide[count-1].style.transform = "scale(0.7)";
+        // slide[count + 2].style.marginLeft = "-10rem";
+        slide[count + 1].style.marginLeft = "-8rem";
+        console.log(count)
+      }
+    });
+  </script>
+</html>
