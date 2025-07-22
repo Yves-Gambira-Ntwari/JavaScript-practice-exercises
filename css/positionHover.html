@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+      }
+
+      .container {
+        position: relative;
+        background-color: rgb(21, 19, 19);
+        color: white;
+        display: flex;
+        padding: 2rem;
+        overflow: auto;
+        padding-left: 10rem;
+      }
+
+      .item {
+        /* flex: 0 0 auto; */
+        flex-shrink: 0;
+        /* background-color: rgb(45, 44, 44); */
+        background: linear-gradient(to right, rgb(37, 36, 36), black);
+        padding: 10px;
+        border-radius: 10px;
+        width: 20rem;
+        height: 20rem;
+        margin-left: -7rem;
+        box-shadow: 1rem 3rem 10rem 5rem rgba(0, 0, 0, 1);
+        transition: 300ms;
+        z-index: 1;
+      }
+
+      .item:hover{
+        transform: rotate(2deg);
+        transform-origin: top right;
+        margin-right: 10rem;
+      }
+
+      span {
+        color: grey;
+      }
+
+      .main p {
+        color: rgb(242, 88, 32);
+      }
+
+      .img{
+        position: relative;
+        overflow: hidden;
+        border-radius: 50%;
+        max-width: 4rem;
+        max-height: 4rem;
+        aspect-ratio: 1;
+      }
+      
+      img{
+        width: 100%;
+        top: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item">
+        <div class="header">
+          <p>Article <span>on Jun 26, 2024</span></p>
+          <h1>CSS positioning</h1>
+        </div>
+        <div class="main">
+          <p>Color</p>
+          <div class="img">
+            <img src="images/Jocks_images_132.jpg" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="header">
+          <p>Article <span>on Jun 26, 2024</span></p>
+          <h1>CSS positioning</h1>
+        </div>
+        <div class="main">
+          <p>Color</p>
+          <div class="img">
+            <img src="images/Jocks_images_132.jpg" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="header">
+          <p>Article <span>on Jun 26, 2024</span></p>
+          <h1>CSS positioning</h1>
+        </div>
+        <div class="main">
+          <p>Color</p>
+          <div class="img">
+            <img src="images/Jocks_images_132.jpg" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="header">
+          <p>Article <span>on Jun 26, 2024</span></p>
+          <h1>CSS positioning</h1>
+        </div>
+        <div class="main">
+          <p>Color</p>
+          <div class="img">
+            <img src="images/Jocks_images_132.jpg" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="header">
+          <p>Article <span>on Jun 26, 2024</span></p>
+          <h1>CSS positioning</h1>
+        </div>
+        <div class="main">
+          <p>Color</p>
+          <div class="img">
+            <img src="images/Jocks_images_132.jpg" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="header">
+          <p>Article <span>on Jun 26, 2024</span></p>
+          <h1>CSS positioning</h1>
+        </div>
+        <div class="main">
+          <p>Color</p>
+          <div class="img">
+            <img src="images/Jocks_images_132.jpg" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="header">
+          <p>Article <span>on Jun 26, 2024</span></p>
+          <h1>CSS positioning</h1>
+        </div>
+        <div class="main">
+          <p>Color</p>
+          <div class="img">
+            <img src="images/Jocks_images_132.jpg" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="header">
+          <p>Article <span>on Jun 26, 2024</span></p>
+          <h1>CSS positioning</h1>
+        </div>
+        <div class="main">
+          <p>Color</p>
+          <div class="img">
+            <img src="images/Jocks_images_132.jpg" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
